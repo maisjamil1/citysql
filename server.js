@@ -45,12 +45,12 @@ app.get('/location', (request, response) => {
           ];
           client.query(SQL, values).then((rowResult) => {
             console.log(rowResult.rows);
-            response.status(200).json(result.rows[0]);
-          });
-        });
+            response.status(200).json(rowResult.rows[0]);
+          })
+        }).catch((err) => errorHandler(err, request, response));
       }
     })
-    .catch((err) => errorHandler(err, request, response));
+   
 });
 
 
